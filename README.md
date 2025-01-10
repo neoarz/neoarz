@@ -1,4 +1,4 @@
-<h1>Hi, I'm Neo</h1>
+<h1>Hi, I'm Neo 🤖</h1>
 <p>A dumbass wanna be developer</p>
 <h2>🚀 Languages and Tools I Use</h2>
 <p align="center">
