@@ -32,9 +32,6 @@
 </p>
 
 ## Profile Details
-
-
-## Profile Details
 ![Profile Details](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=neoarz&theme=github_dark)
 ![Top Repos Per Language](http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=neoarz&theme=github_dark)
 ![GitHub Stats](http://github-profile-summary-cards.vercel.app/api/cards/stats?username=neoarz&theme=github_dark)
