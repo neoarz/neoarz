@@ -1,8 +1,20 @@
 <h1 align="center">
-   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=30&duration=3000&pause=200&color=F7F7F7&center=true&width=435&lines=Hey%2C+I'm+Neo" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=30&duration=3000&pause=200&color=3968F7&center=true&width=435&lines=Hey%2C+I'm+Neo" alt="Typing SVG" />
 </h1>
-<p>A dumbass wanna be developer</p>
-<h2>🚀 Languages and Tools I Use</h2>
+<h3 align="center">A dumbass wanna be developer:) 🇺🇸</h3>
+
+<div align="center">
+ 
+ 🔭 I’m currently working on **Countdown.** Yes the app from the movies
+ 
+ 🌱 Certified Sidestore Idiot **you can ask me any questions**
+
+ </div>
+ 
+</br>
+
+<h2 align="center">⚒️ Languages-Frameworks-Tools ⚒️</h2>
+
 <p align="center">
   <span style="display: inline-block; padding-right: 15px;">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="42" height="42" />
@@ -30,8 +42,7 @@
   </span>
 </p>
 
-
-## Profile Details
+<h2 align="center">Profile Details</h2>
 
 <p align="center">
   <img src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=neoarz&theme=github_dark&cache=reset" />
