@@ -42,10 +42,17 @@
   </span>
 </p>
 
+
 <h2 align="center">Profile Details</h2>
 
 <p align="center">
-  <img src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=neoarz&theme=github_dark&cache=reset" />
-  <img src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=neoarz&theme=github_dark&cache=reset" />
+  <a href="https://git.io/streak-stats">
+    <img src="https://github-readme-streak-stats-kappa-drab.vercel.app?user=neoarz&theme=dark" alt="GitHub Streak" width="500" />
+  </a>
+</p>
+
+<p align="center">
+  <img src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=neoarz&theme=github_dark&cache=reset" alt="Repos Per Language" width="320" />
+  <img src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=neoarz&theme=github_dark&cache=reset" alt="GitHub Stats" width="320" />
 </p>
 
