@@ -18,9 +18,6 @@
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="42" height="42" />
   </span>
   <span style="display: inline-block; padding-right: 15px;">
-    <img src="https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg" alt="bash" width="42" height="42" />
-  </span>
-  <span style="display: inline-block; padding-right: 15px;">
     <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="42" height="42" />
   </span>
   <span style="display: inline-block; padding-right: 15px;">
