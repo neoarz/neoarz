@@ -1,4 +1,6 @@
-<h1>Hi, I'm Neo 🤖</h1>
+<h1 align="center">
+   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=30&duration=3000&pause=200&color=F7F7F7&center=true&width=435&lines=Hey%2C+I'm+Neo" alt="Typing SVG" />
+</h1>
 <p>A dumbass wanna be developer</p>
 <h2>🚀 Languages and Tools I Use</h2>
 <p align="center">
