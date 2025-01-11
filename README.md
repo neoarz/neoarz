@@ -28,8 +28,11 @@
   </span>
 </p>
 
-## Profile Details
-![Repos per Language](http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=neoarz&theme=github_dark&cache=reset)
-![GitHub Stats](http://github-profile-summary-cards.vercel.app/api/cards/stats?username=neoarz&theme=github_dark&cache=reset)
 
+## Profile Details
+
+<p align="center">
+  <img src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=neoarz&theme=github_dark&cache=reset" />
+  <img src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=neoarz&theme=github_dark&cache=reset" />
+</p>
 
