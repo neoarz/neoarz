@@ -42,7 +42,7 @@
   </span>
 </p>
 
-
+</br>
 <h2 align="center">Profile Details</h2>
 
 <p align="center">
