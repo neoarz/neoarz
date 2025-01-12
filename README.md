@@ -1,19 +1,19 @@
 <h1 align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=30&duration=3000&pause=200&color=3968F7&center=true&width=435&lines=Hey%2C+I'm+Neo" alt="Typing SVG" />
 </h1>
-<h3 align="center">A dumbass wanna be developer:) 🇺🇸</h3>
+<h3 align="center">A dumbass wanna be developer </h3>
 
 <div align="center">
  
- 🔭 I’m currently working on **Countdown.** Yes the app from the movies
+  I’m currently working on **Countdown.** Yes the app from the movies
  
- 🌱 Certified Sidestore Idiot. **You can ask me any questions**
+  Certified Sidestore Idiot. **You can ask me any questions**
 
  </div>
  
 </br>
 
-<h2 align="center"> Tools I use ⚒️</h2>
+<h2 align="center"> Tools I use ⚒</h2>
 
 <p align="center">
   <span style="display: inline-block; padding-right: 15px;">
