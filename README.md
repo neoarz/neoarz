@@ -47,7 +47,8 @@
 
 <p align="center">
   <a href="https://git.io/streak-stats">
-    <img src="https://github-readme-streak-stats-kappa-drab.vercel.app?user=neoarz&theme=dark" alt="GitHub Streak" width="500" />
+    <img src="https://github-readme-streak-stats-kappa-drab.vercel.app?user=neoarz&theme=dark&cache=reset" alt="GitHub Streak" width="500" />
+
   </a>
 </p>
 
