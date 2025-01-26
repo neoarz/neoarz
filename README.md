@@ -7,7 +7,7 @@
  
   I’m currently working on **Countdown.** Yes the app from the movies
  
-  Certified Sidestore Idiot. **You can ask me any questions!**
+  Certified Sidestore Idiot. **You can ask me any question!**
 
  </div>
  
