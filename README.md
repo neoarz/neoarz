@@ -10,7 +10,7 @@
   Certified Sidestore Idiot. **You can ask me any questions!**
 
  </div>
- 
+
 </br>
 
 <h2 align="center"> Tools I use ⚒</h2>
