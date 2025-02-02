@@ -11,7 +11,6 @@ import Neo
 struct Developer {
     let name: String
     let age: String
-    let tools: [String]
     let hobbies: [String]
     let projects: [String]
     
@@ -26,7 +25,6 @@ struct Developer {
 let neo = notDeveloper(
     name: "Neo",
     age: "17",
-    tools: ["JavaScript", "Python", "Swift", "HTML", "CSS", "Firebase", "Git", "Linux"],
     hobbies: ["Coding", "Procrastinating", "Side Projects"],
     projects: ["Sidestore", "StikNES", "Countdown-App"],
 )
