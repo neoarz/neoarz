@@ -13,7 +13,7 @@
 
 </br>
 
-<h2 align="center"> Tools I us ⚒</h2>
+<h2 align="center"> Tools I use ⚒</h2>
 
 <p align="center">
   <span style="display: inline-block; padding-right: 15px;">
