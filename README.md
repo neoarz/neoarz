@@ -15,7 +15,6 @@ struct Developer {
     let projects: [String]
     
     func sayHello() {
-        print("Hey, I'm Neo!") // Hi!!!
         print("A dumbass wanna be developer") 
         print("Currently working on Countdown — yes, the app from the movies!")
         print("Certified Sidestore Idiot. You can ask me any questions!")
