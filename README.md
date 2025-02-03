@@ -1,40 +1,7 @@
 <h1 align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=30&duration=3000&pause=200&color=3968F7&center=true&width=435&lines=Hey%2C+I'm+Neo" alt="Typing SVG" />
 </h1>
-
-
-
-```swift
-import SwiftUI
-import Neo
-
-struct Developer {
-    let name: String
-    let age: String
-    let hobbies: [String]
-    let projects: [String]
-    
-    func aboutMe() {
-        print("A dumbass wanna be developer") 
-        print("Currently working on Countdown — yes, the app from the movies!")
-        print("Certified Sidestore Idiot. You can ask me any questions!")
-    }
-}
-
-let neo = notDeveloper(
-    name: "Neo",
-    age: "17",
-    hobbies: ["Coding", "Procrastinating", "Side Projects"],
-    projects: ["Sidestore", "StikNES", "Countdown-App"],
-)
-
-neo.aboutMe()
-```
-
-
-</p>
-
-</br>
+<img src="https://raw.githubusercontent.com/neoarz/neoarz/refs/heads/main/neoreadme.svg" style="width: 100%;" />
 
 
 <p align="center">
