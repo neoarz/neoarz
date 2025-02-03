@@ -14,7 +14,7 @@ struct Developer {
     let hobbies: [String]
     let projects: [String]
     
-    func sayHello() {
+    func aboutME() {
         print("A dumbass wanna be developer") 
         print("Currently working on Countdown — yes, the app from the movies!")
         print("Certified Sidestore Idiot. You can ask me any questions!")
@@ -28,7 +28,7 @@ let neo = notDeveloper(
     projects: ["Sidestore", "StikNES", "Countdown-App"],
 )
 
-neo.sayHello()
+neo.aboutME()
 ```
 
 
