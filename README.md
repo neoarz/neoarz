@@ -5,8 +5,8 @@
 <img src="https://raw.githubusercontent.com/neoarz/neoarz/refs/heads/main/neodark.svg" alt="NeoDark" style="width: 100%; height: auto;">
 
 
-<p align="center">
-  <img src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=neoarz&theme=github_dark&cache=reset" alt="Repos Per Language"  />
-  <img src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=neoarz&theme=github_dark&cache=reset" alt="GitHub Stats"  />
-</p>
 
+<div align="center">
+  <img src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=neoarz&theme=github_dark" width="66%" />
+  <img src="http://neoarzcards.vercel.app/api/cards/repos-per-language?username=neoarz&theme=github_dark" width="32%" />
+</div>
