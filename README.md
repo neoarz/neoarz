@@ -1,6 +1,6 @@
 
 
-<img src="https://raw.githubusercontent.com/neoarz/neoarz/refs/heads/main/neodark.svg" alt="NeoDark" style="width: 100%; height: auto;">
+<img src="https://github.com/neoarz/neoarz/raw/refs/heads/main/neodark.svg" alt="NeoDark" style="width: 100%; height: auto;">
 
 
 
