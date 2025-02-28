@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #0a0a0a;
+            --secondary: #121212;
+            --accent: #4f9bff;
+            --text: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --border: #333333;
+            --gradient-start: #000000;
+            --gradient-mid: #121212;
+            --gradient-end: #1a1a1a;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow-x: hidden;
+            background: linear-gradient(-45deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        /* Animated gradient background */
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        /* Subtle texture overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        /* Main content container */
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        /* Content box with subtle texture */
+        .content-box {
+            background-color: rgba(18, 18, 18, 0.8);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+        
+        .content-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.6' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        
+        /* Profile picture above name */
+        .profile-container {
+            margin-bottom: 1.5rem;
+        }
+        
+        .profile-picture {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 20px rgba(79, 155, 255, 0.3);
+        }
+        
+        /* Name styles */
+        .name {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .name::after {
+            content: '';
+            position: absolute;
+            width: 40%;
+            height: 3px;
+            bottom: -10px;
+            left: 30%;
+            background: var(--accent);
+            border-radius: 3px;
+        }
+        
+        /* Description styles */
+        .description {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            line-height: 1.6;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--text-secondary);
+        }
+        
+        /* Social icons container */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        /* Individual social icon */
+        .social-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s, background 0.2s;
+            border: 1px solid var(--border);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent);
+        }
+        
+        .social-icon i {
+            font-size: 1.2rem;
+            color: var(--text);
+        }
+        
+        /* Section styling */
+        .section {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--text);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            bottom: -8px;
+            left: 25%;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        /* Skills section */
+        .skills-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            margin-top: 1rem;
+        }
+        
+        .skill-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.2s;
+        }
+        
+        .skill-icon:hover {
+            transform: translateY(-3px);
+        }
+        
+        .skill-icon i {
+            font-size: 1.8rem;
+            color: var(--text-secondary);
+        }
+        
+        .skill-icon:hover i {
+            color: var(--accent);
+        }
+        
+        .skill-name {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Projects section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: left;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            border-color: var(--accent);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        .project-content {
+            padding: 1.2rem;
+        }
+        
+        .project-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+        
+        .project-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tech-tag {
+            font-size: 0.75rem;
+            padding: 0.3rem 0.6rem;
+            background: rgba(79, 155, 255, 0.1);
+            color: var(--accent);
+            border-radius: 4px;
+            border: 1px solid rgba(79, 155, 255, 0.3);
+        }
+        
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .profile-picture {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .name {
+                font-size: 2.5rem;
+            }
+            
+            .description {
+                font-size: 1rem;
+            }
+            
+            .content-box {
+                padding: 2rem 1.5rem;
+            }
+            
+            .social-icon {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .skills-icons {
+                gap: 1.5rem;
+            }
+            
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .profile-picture {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .name {
+                font-size: 2rem;
+            }
+            
+            .skills-icons {
+                gap: 1rem;
+            }
+            
+            .skill-icon i {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="content-box">
+                <div class="profile-container">
+                    <img src="https://github.com/neoarz/neoarz/blob/main/2BD56C8F-C718-44E0-87E7-30049495D5AD_1_102_o.jpeg?raw=true" alt="Profile Picture" class="profile-picture">
+                </div>
+                
+                <h1 class="name">neoarz</h1>
+                <p class="description">Developer and designer focused on creating minimalist, functional digital experiences with clean code and thoughtful user interfaces.</p>
+                
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Dribbble">
+                        <i class="fab fa-dribbble"></i>
+                    </a>
+                </div>
+                
+                <div class="section skills-section">
+                    <h2 class="section-title">Skills & Technologies</h2>
+                    <div class="skills-icons">
+                        <div class="skill-icon">
+                            <i class="fab fa-react"></i>
+                            <span class="skill-name">React</span>
+                        </div>
+                        <div class="skill-icon">
+                            <i class="fab fa-js"></i>
+                            <span class="skill-name">JavaScript</span>
+                        </div>
+                        <div class="skill-icon">
+                            <i class="fab fa-node-js"></i>
+                            <span class="skill-name">Node.js</span>
+                        </div>
+                        <div class="skill-icon">
+                            <i class="fab fa-html5"></i>
+                            <span class="skill-name">HTML5</span>
+                        </div>
+                        <div class="skill-icon">
+                            <i class="fab fa-css3-alt"></i>
+                            <span class="skill-name">CSS3</span>
+                        </div>
+                        <div class="skill-icon">
+                            <i class="fab fa-figma"></i>
+                            <span class="skill-name">Figma</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section projects-section">
+                    <h2 class="section-title">Current Projects</h2>
+                    <div class="projects-container">
+                        <div class="project-card">
+                            <img src="/api/placeholder/400/200" alt="Project 1" class="project-image">
+                            <div class="project-content">
+                                <h3 class="project-title">Personal Finance Dashboard</h3>
+                                <p class="project-description">A comprehensive dashboard for tracking expenses, investments, and budget planning with visualizations.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">React</span>
+                                    <span class="tech-tag">Node.js</span>
+                                    <span class="tech-tag">MongoDB</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <img src="/api/placeholder/400/200" alt="Project 2" class="project-image">
+                            <div class="project-content">
+                                <h3 class="project-title">AI-Powered Task Manager</h3>
+                                <p class="project-description">Smart task management app that uses AI to categorize, prioritize and suggest optimal scheduling.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">TensorFlow</span>
+                                    <span class="tech-tag">React</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <img src="https://docs.sidestore.io/img/logo.png" alt="Project 3" class="project-image">
+                            <div class="project-content">
+                                <h3 class="project-title">E-Commerce Theme</h3>
+                                <p class="project-description">A modern, minimalist e-commerce theme with dark mode and optimized for performance.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">HTML/CSS</span>
+                                    <span class="tech-tag">JavaScript</span>
+                                    <span class="tech-tag">Shopify</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
