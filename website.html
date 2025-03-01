@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Personal Website</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
@@ -15,13 +18,13 @@
         :root {
             --primary: #0a0a0a;
             --secondary: #121212;
-            --accent: #4f9bff;
+            --accent: #333333;
             --text: #e0e0e0;
             --text-secondary: #a0a0a0;
             --border: #333333;
             --gradient-start: #000000;
-            --gradient-mid: #121212;
-            --gradient-end: #1a1a1a;
+            --gradient-mid: #0a0a0a;
+            --gradient-end: #121212;
         }
         
         body {
@@ -32,12 +35,22 @@
             flex-direction: column;
             position: relative;
             overflow-x: hidden;
+            background: #0a0a0a; /* Solid fallback color */
+            background: -webkit-linear-gradient(-45deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
             background: linear-gradient(-45deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
             background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
+            background-attachment: fixed;
+            -webkit-animation: gradient 20s ease infinite;
+            animation: gradient 20s ease infinite;
         }
         
         /* Animated gradient background */
+        @-webkit-keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
         @keyframes gradient {
             0% {
                 background-position: 0% 50%;
@@ -81,13 +94,14 @@
         
         /* Content box with subtle texture */
         .content-box {
-            background-color: rgba(18, 18, 18, 0.8);
+            background-color: rgba(10, 10, 10, 0.9);
             border-radius: 12px;
             padding: 3rem 2rem;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
             position: relative;
             overflow: hidden;
             border: 1px solid var(--border);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
         }
         
@@ -114,7 +128,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--accent);
-            box-shadow: 0 0 20px rgba(79, 155, 255, 0.3);
+            box-shadow: 0 0 20px rgba(30, 30, 30, 0.5);
         }
         
         /* Name styles */
@@ -155,6 +169,8 @@
             justify-content: center;
             gap: 1.5rem;
             margin-top: 2rem;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            padding-bottom: 0; /* Remove bottom padding that might cause blue line */
         }
         
         /* Individual social icon */
@@ -168,12 +184,14 @@
             justify-content: center;
             transition: transform 0.2s, background 0.2s;
             border: 1px solid var(--border);
+            text-decoration: none; /* Remove underline */
+            margin-bottom: 10px; /* Add margin for spacing when wrapped */
         }
         
         .social-icon:hover {
             transform: translateY(-3px);
             background: rgba(255, 255, 255, 0.1);
-            border-color: var(--accent);
+            border-color: #555555;
         }
         
         .social-icon i {
@@ -234,7 +252,7 @@
         }
         
         .skill-icon:hover i {
-            color: var(--accent);
+            color: #555555;
         }
         
         .skill-name {
@@ -262,7 +280,7 @@
         .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-            border-color: var(--accent);
+            border-color: #555555;
         }
         
         .project-image {
@@ -298,10 +316,26 @@
         .tech-tag {
             font-size: 0.75rem;
             padding: 0.3rem 0.6rem;
-            background: rgba(79, 155, 255, 0.1);
-            color: var(--accent);
+            background: rgba(50, 50, 50, 0.3);
+            color: var(--text);
             border-radius: 4px;
-            border: 1px solid rgba(79, 155, 255, 0.3);
+            border: 1px solid rgba(80, 80, 80, 0.3);
+        }
+        
+        @supports (-webkit-touch-callout: none) {
+            body {
+                background: #0a0a0a !important;
+            }
+            
+            .content-box {
+                background-color: rgba(10, 10, 10, 0.98) !important;
+            }
+            
+            /* Fix for purple line on Mac */
+            .name::after,
+            .section-title::after {
+                background: #333333 !important;
+            }
         }
         
         /* Media Queries */
@@ -326,6 +360,12 @@
             .social-icon {
                 width: 40px;
                 height: 40px;
+                margin-bottom: 8px; /* Ensure space when icons wrap */
+            }
+            
+            .social-icons {
+                gap: 1rem; /* Reduce gap on smaller screens */
+                padding: 0; /* Remove any padding that might cause lines */
             }
             
             .skills-icons {
@@ -338,6 +378,10 @@
         }
         
         @media (max-width: 480px) {
+            body {
+                background-attachment: fixed;
+            }
+            
             .profile-picture {
                 width: 80px;
                 height: 80px;
@@ -358,6 +402,19 @@
             .section-title {
                 font-size: 1.3rem;
             }
+            
+            .content-box {
+                background-color: rgba(10, 10, 10, 0.95);
+            }
+            
+            .social-icons {
+                gap: 0.8rem; /* Even smaller gap on tiny screens */
+            }
+            
+            .social-icon {
+                width: 38px; /* Slightly smaller icons */
+                height: 38px;
+            }
         }
     </style>
 </head>
@@ -367,7 +424,7 @@
         <div class="container">
             <div class="content-box">
                 <div class="profile-container">
-                    <img src="https://github.com/neoarz/neoarz/blob/main/2BD56C8F-C718-44E0-87E7-30049495D5AD_1_102_o.jpeg?raw=true" alt="Profile Picture" class="profile-picture">
+                    <img src="https://github.com/neoarz/neoarz/blob/main/neoarz.jpeg?raw=true" alt="Profile Picture" class="profile-picture">
                 </div>
                 
                 <h1 class="name">neoarz</h1>
@@ -377,14 +434,17 @@
                     <a href="#" class="social-icon" aria-label="Twitter">
                         <i class="fab fa-twitter"></i>
                     </a>
+                    <a href="#" class="social-icon" aria-label="Reddit">
+                        <i class="fab fa-reddit"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Discord">
+                        <i class="fab fa-discord"></i>
+                    </a>
                     <a href="#" class="social-icon" aria-label="GitHub">
                         <i class="fab fa-github"></i>
-                    </a>
-                    <a href="#" class="social-icon" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" class="social-icon" aria-label="Dribbble">
-                        <i class="fab fa-dribbble"></i>
                     </a>
                 </div>
                 
@@ -392,28 +452,32 @@
                     <h2 class="section-title">Skills & Technologies</h2>
                     <div class="skills-icons">
                         <div class="skill-icon">
-                            <i class="fab fa-react"></i>
-                            <span class="skill-name">React</span>
-                        </div>
-                        <div class="skill-icon">
                             <i class="fab fa-js"></i>
                             <span class="skill-name">JavaScript</span>
                         </div>
                         <div class="skill-icon">
-                            <i class="fab fa-node-js"></i>
-                            <span class="skill-name">Node.js</span>
+                            <i class="fab fa-css3-alt"></i>
+                            <span class="skill-name">CSS</span>
                         </div>
                         <div class="skill-icon">
                             <i class="fab fa-html5"></i>
-                            <span class="skill-name">HTML5</span>
+                            <span class="skill-name">HTML</span>
                         </div>
                         <div class="skill-icon">
-                            <i class="fab fa-css3-alt"></i>
-                            <span class="skill-name">CSS3</span>
+                            <i class="fab fa-swift"></i>
+                            <span class="skill-name">Swift</span>
                         </div>
                         <div class="skill-icon">
                             <i class="fab fa-figma"></i>
                             <span class="skill-name">Figma</span>
+                        </div>
+                        <div class="skill-icon">
+                            <i class="fab fa-python"></i>
+                            <span class="skill-name">Python</span>
+                        </div>
+                        <div class="skill-icon">
+                            <i class="fab fa-docker"></i>
+                            <span class="skill-name">Docker</span>
                         </div>
                     </div>
                 </div>
@@ -446,9 +510,22 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="project-card">
+                            <img src="/api/placeholder/400/200" alt="Project 3" class="project-image">
+                            <div class="project-content">
+                                <h3 class="project-title">AI-Powered Task Manager</h3>
+                                <p class="project-description">Smart task management app that uses AI to categorize, prioritize and suggest optimal scheduling.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">TensorFlow</span>
+                                    <span class="tech-tag">React</span>
+                                </div>
+                            </div>
+                        </div>
                         
                         <div class="project-card">
-                            <img src="https://docs.sidestore.io/img/logo.png" alt="Project 3" class="project-image">
+                            <img src="/api/placeholder/400/200" alt="Project 4" class="project-image">
                             <div class="project-content">
                                 <h3 class="project-title">E-Commerce Theme</h3>
                                 <p class="project-description">A modern, minimalist e-commerce theme with dark mode and optimized for performance.</p>
