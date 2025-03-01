@@ -753,6 +753,17 @@
           width: 38px;
           height: 38px;
         }
+
+        img {
+          pointer-events: none; /* Prevents clicking */
+          user-select: none; /* Prevents selection */
+          -webkit-user-select: none; /* For Safari */
+          -moz-user-select: none; /* For Firefox */
+          -ms-user-select: none; /* For IE/Edge */
+          -webkit-user-drag: none; /* Prevents dragging in Safari/Chrome */
+          -khtml-user-drag: none; /* For old browsers */
+          -moz-user-drag: none; /* For Firefox */
+        }
       }
     </style>
   </head>
@@ -765,6 +776,7 @@
               src="https://github.com/neoarz/neoarz/blob/main/neoarz.jpeg?raw=true"
               alt="Profile Picture"
               class="profile-picture"
+              draggable="false"
             />
           </div>
 
@@ -860,6 +872,7 @@
                   src="https://github.com/neoarz/neoarz/raw/refs/heads/main/assets/Sidestore.webp"
                   alt="Sidestore"
                   class="project-image"
+                  draggable="false"
                 />
                 <div class="project-content">
                   <h3 class="project-title">Sidestore</h3>
@@ -880,6 +893,7 @@
                   src="https://github.com/neoarz/neoarz/blob/main/assets/CountdownBanner.png?raw=true"
                   alt="Sidestore"
                   class="project-image"
+                  draggable="false"
                 />
                 <div class="project-content">
                   <h3 class="project-title">Countdown</h3>
@@ -896,8 +910,9 @@
               <div class="project-card">
                 <img
                   src="https://github.com/neoarz/neoarz/blob/main/assets/StikNES.png?raw=true"
-                  alt="Project 3"
+                  alt="StikNES"
                   class="project-image"
+                  draggable="false"
                 />
                 <div class="project-content">
                   <h3 class="project-title">StikNES</h3>
@@ -916,8 +931,9 @@
               <div class="project-card">
                 <img
                   src="https://github.com/neoarz/neoarz/blob/main/assets/neosign.png?raw=true"
-                  alt="Project 4"
+                  alt="Countdown"
                   class="project-image"
+                  draggable="false"
                 />
                 <div class="project-content">
                   <h3 class="project-title">Neosign</h3>
