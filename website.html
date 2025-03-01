@@ -1,701 +1,949 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0a0a0a">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
     <title>Personal Website</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #0a0a0a;
+        --secondary: #121212;
+        --accent: #333333;
+        --text: #e0e0e0;
+        --text-secondary: #a0a0a0;
+        --border: #333333;
+        --gradient-start: #0a0a0a;
+        --gradient-mid: #121212;
+        --gradient-end: #1a1a1a;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, sans-serif;
+        color: #e0e0e0;
+        color: var(--text);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow-x: hidden;
+        background: #0a0a0a;
+
+        background: -webkit-linear-gradient(
+          -45deg,
+          #111111,
+          #1a1a1a,
+          #222222,
+          #1a1a1a,
+          #111111
+        );
+        background: -moz-linear-gradient(
+          -45deg,
+          #111111,
+          #1a1a1a,
+          #222222,
+          #1a1a1a,
+          #111111
+        );
+        background: linear-gradient(
+          -45deg,
+          #111111,
+          #1a1a1a,
+          #222222,
+          #1a1a1a,
+          #111111
+        );
+        background-size: 600% 600%;
+        -webkit-animation: gradient 25s ease infinite;
+        -moz-animation: gradient 25s ease infinite;
+        animation: gradient 25s ease infinite;
+      }
+
+      @-webkit-keyframes gradient {
+        0% {
+          background-position: 0% 50%;
         }
-        
-        
-        :root {
-            --primary: #0a0a0a;
-            --secondary: #121212;
-            --accent: #333333;
-            --text: #e0e0e0;
-            --text-secondary: #a0a0a0;
-            --border: #333333;
-            --gradient-start: #0a0a0a;
-            --gradient-mid: #121212; 
-            --gradient-end: #1a1a1a;
+        50% {
+          background-position: 100% 50%;
         }
-        
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      @-moz-keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .main-content {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4rem 2rem;
+      }
+
+      .container {
+        text-align: center;
+        max-width: 800px;
+        width: 100%;
+        opacity: 0;
+        -webkit-animation: fadeIn 0.6s ease-out forwards;
+        animation: fadeIn 0.6s ease-out forwards;
+      }
+
+      @-webkit-keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .content-box {
+        background-color: rgba(10, 10, 10, 0.7);
+        border-radius: 12px;
+        padding: 3rem 2rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+        border: 1px solid #333333;
+        border: 1px solid var(--border);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        transform: translateY(30px);
+        opacity: 0;
+        -webkit-animation: slideUp 0.5s ease-out 0.1s forwards;
+        animation: slideUp 0.5s ease-out 0.1s forwards;
+      }
+
+      @-webkit-keyframes slideUp {
+        from {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .content-box::after {
+        content: "";
+        position: absolute;
+        top: -150%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          to bottom right,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0.05),
+          rgba(255, 255, 255, 0)
+        );
+        filter: blur(60px);
+        transform: rotate(30deg);
+        -webkit-animation: glassShine 3s ease-in-out 1 forwards;
+        animation: glassShine 3s ease-in-out 1 forwards;
+        pointer-events: none;
+      }
+
+      @-webkit-keyframes glassShine {
+        0% {
+          transform: translate(-30%, -30%) rotate(30deg);
+        }
+        100% {
+          transform: translate(30%, 30%) rotate(30deg);
+        }
+      }
+
+      @keyframes glassShine {
+        0% {
+          transform: translate(-30%, -30%) rotate(30deg);
+        }
+        100% {
+          transform: translate(30%, 30%) rotate(30deg);
+        }
+      }
+
+      .profile-container {
+        margin-bottom: 1.5rem;
+        opacity: 0;
+        transform: scale(0.8);
+        -webkit-animation: popIn 0.4s ease-out 0.3s forwards;
+        animation: popIn 0.4s ease-out 0.3s forwards;
+      }
+
+      @-webkit-keyframes popIn {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes popIn {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .profile-picture {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #333333;
+        border: 3px solid var(--accent);
+        box-shadow: 0 0 20px rgba(30, 30, 30, 0.5);
+      }
+
+      .name {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: #e0e0e0;
+        color: var(--text);
+        position: relative;
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(20px);
+        -webkit-animation: slideUp 0.4s ease-out 0.5s forwards;
+        animation: slideUp 0.4s ease-out 0.5s forwards;
+      }
+
+      .name::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 3px;
+        bottom: -10px;
+        left: 30%;
+        background: #333333;
+        background: var(--accent);
+        border-radius: 3px;
+        -webkit-animation: lineGrow 0.4s ease-out 0.9s forwards;
+        animation: lineGrow 0.4s ease-out 0.9s forwards;
+      }
+
+      @-webkit-keyframes lineGrow {
+        from {
+          width: 0;
+        }
+        to {
+          width: 40%;
+        }
+      }
+
+      @keyframes lineGrow {
+        from {
+          width: 0;
+        }
+        to {
+          width: 40%;
+        }
+      }
+
+      .description {
+        font-size: 1.2rem;
+        margin-bottom: 2.5rem;
+        max-width: 600px;
+        line-height: 1.6;
+        margin-left: auto;
+        margin-right: auto;
+        color: #a0a0a0;
+        color: var(--text-secondary);
+        opacity: 0;
+        transform: translateY(20px);
+        -webkit-animation: slideUp 0.4s ease-out 0.6s forwards;
+        animation: slideUp 0.4s ease-out 0.6s forwards;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+        padding-bottom: 0;
+      }
+
+      .social-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s, background 0.2s;
+        border: 1px solid #333333;
+        border: 1px solid var(--border);
+        text-decoration: none;
+        margin-bottom: 10px;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .social-icon:nth-child(1) {
+        -webkit-animation: slideUp 0.3s ease-out 0.7s forwards;
+        animation: slideUp 0.3s ease-out 0.7s forwards;
+      }
+      .social-icon:nth-child(2) {
+        -webkit-animation: slideUp 0.3s ease-out 0.75s forwards;
+        animation: slideUp 0.3s ease-out 0.75s forwards;
+      }
+      .social-icon:nth-child(3) {
+        -webkit-animation: slideUp 0.3s ease-out 0.8s forwards;
+        animation: slideUp 0.3s ease-out 0.8s forwards;
+      }
+      .social-icon:nth-child(4) {
+        -webkit-animation: slideUp 0.3s ease-out 0.85s forwards;
+        animation: slideUp 0.3s ease-out 0.85s forwards;
+      }
+      .social-icon:nth-child(5) {
+        -webkit-animation: slideUp 0.3s ease-out 0.9s forwards;
+        animation: slideUp 0.3s ease-out 0.9s forwards;
+      }
+
+      .social-icon:hover {
+        transform: translateY(-3px);
+        background: rgba(255, 255, 255, 0.1);
+        border-color: #555555;
+      }
+
+      .social-icon i {
+        font-size: 1.2rem;
+        color: #e0e0e0;
+        color: var(--text);
+      }
+
+      .section {
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid #333333;
+        border-top: 1px solid var(--border);
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      .skills-section {
+        -webkit-animation: slideUp 0.4s ease-out 1s forwards;
+        animation: slideUp 0.4s ease-out 1s forwards;
+      }
+
+      .projects-section {
+        -webkit-animation: slideUp 0.4s ease-out 1.1s forwards;
+        animation: slideUp 0.4s ease-out 1.1s forwards;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        color: #e0e0e0;
+        color: var(--text);
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -8px;
+        left: 25%;
+        background: #333333;
+        background: var(--accent);
+        border-radius: 2px;
+        -webkit-animation: lineGrow 0.4s ease-out forwards;
+        animation: lineGrow 0.4s ease-out forwards;
+        animation-delay: inherit;
+        -webkit-animation-delay: inherit;
+      }
+
+      .skills-icons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2.5rem;
+        margin-top: 1rem;
+      }
+
+      .skill-icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        transition: transform 0.2s;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .skill-icon:nth-child(1) {
+        -webkit-animation: slideUp 0.25s ease-out 1.2s forwards;
+        animation: slideUp 0.25s ease-out 1.2s forwards;
+      }
+      .skill-icon:nth-child(2) {
+        -webkit-animation: slideUp 0.25s ease-out 1.25s forwards;
+        animation: slideUp 0.25s ease-out 1.25s forwards;
+      }
+      .skill-icon:nth-child(3) {
+        -webkit-animation: slideUp 0.25s ease-out 1.3s forwards;
+        animation: slideUp 0.25s ease-out 1.3s forwards;
+      }
+      .skill-icon:nth-child(4) {
+        -webkit-animation: slideUp 0.25s ease-out 1.35s forwards;
+        animation: slideUp 0.25s ease-out 1.35s forwards;
+      }
+      .skill-icon:nth-child(5) {
+        -webkit-animation: slideUp 0.25s ease-out 1.4s forwards;
+        animation: slideUp 0.25s ease-out 1.4s forwards;
+      }
+      .skill-icon:nth-child(6) {
+        -webkit-animation: slideUp 0.25s ease-out 1.45s forwards;
+        animation: slideUp 0.25s ease-out 1.45s forwards;
+      }
+      .skill-icon:nth-child(7) {
+        -webkit-animation: slideUp 0.25s ease-out 1.5s forwards;
+        animation: slideUp 0.25s ease-out 1.5s forwards;
+      }
+
+      .skill-icon:hover {
+        transform: translateY(-3px);
+      }
+
+      .skill-icon i {
+        font-size: 1.8rem;
+        color: #a0a0a0;
+        color: var(--text-secondary);
+      }
+
+      .skill-icon:hover i {
+        color: #555555;
+      }
+
+      .skill-name {
+        font-size: 0.9rem;
+        color: #a0a0a0;
+        color: var(--text-secondary);
+      }
+
+      .projects-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .project-card {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid #333333;
+        border: 1px solid var(--border);
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: left;
+        opacity: 0;
+        transform: translateY(20px);
+        cursor: pointer;
+      }
+      .project-card:hover {
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+        border-color: #555555;
+      }
+
+      .project-card:nth-child(1) {
+        -webkit-animation: slideUp 0.3s ease-out 1.3s forwards;
+        animation: slideUp 0.3s ease-out 1.3s forwards;
+      }
+      .project-card:nth-child(2) {
+        -webkit-animation: slideUp 0.3s ease-out 1.35s forwards;
+        animation: slideUp 0.3s ease-out 1.35s forwards;
+      }
+      .project-card:nth-child(3) {
+        -webkit-animation: slideUp 0.3s ease-out 1.4s forwards;
+        animation: slideUp 0.3s ease-out 1.4s forwards;
+      }
+      .project-card:nth-child(4) {
+        -webkit-animation: slideUp 0.3s ease-out 1.45s forwards;
+        animation: slideUp 0.3s ease-out 1.45s forwards;
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        border-color: #555555;
+      }
+
+      .project-image {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+      }
+
+      .project-content {
+        padding: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        height: calc(100% - 150px); /* Subtract image height */
+      }
+
+      .project-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #e0e0e0;
+        color: var(--text);
+      }
+
+      .project-description {
+        font-size: 0.9rem;
+        color: #a0a0a0;
+        color: var(--text-secondary);
+
+        margin-bottom: 0;
+        line-height: 1.5;
+        flex-grow: 1;
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: auto;
+        padding-top: 1rem;
+      }
+
+      .tech-tag {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+        background: rgba(50, 50, 50, 0.3);
+        color: #e0e0e0;
+        color: var(--text);
+        border-radius: 4px;
+        border: 1px solid rgba(80, 80, 80, 0.3);
+      }
+
+      @media screen and (-webkit-min-device-pixel-ratio: 0) {
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            color: var(--text);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow-x: hidden;
-            background: #0a0a0a; /* Solid fallback color */
-            
-            background: -webkit-linear-gradient(-45deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end), var(--gradient-mid), var(--gradient-start));
-           background: linear-gradient(-45deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end), var(--gradient-mid), var(--gradient-start));
-           background-size: 600% 600%; /* Larger background size for more subtle transitions */
-         -webkit-animation: gradient 25s ease infinite; /* Slower animation */
-         animation: gradient 25s ease infinite; /* Slower animation */
+          background: #0a0a0a !important;
         }
-        
-        /* Improved animated gradient background */
-        @-webkit-keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        /* Subtle texture overlay */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.03;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        /* Main content container */
-        .main-content {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 4rem 2rem;
-        }
-        
-        .container {
-            text-align: center;
-            max-width: 800px;
-            width: 100%;
-            opacity: 0;
-            animation: fadeIn 0.6s ease-out forwards; /* Faster animation */
-        }
-        
-        /* Glass container animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        
-        /* Content box with subtle texture and glass effect */
+
         .content-box {
-            background-color: rgba(10, 10, 10, 0.7);
-            border-radius: 12px;
-            padding: 3rem 2rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            transform: translateY(30px);
-            opacity: 0;
-            animation: slideUp 0.5s ease-out 0.1s forwards; /* Faster animation */
+          background-color: rgba(10, 10, 10, 0.95) !important;
+          -webkit-backdrop-filter: none !important;
+          backdrop-filter: none !important;
         }
-        
-        @keyframes slideUp {
-            from {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        
-        .content-box::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.04;
-            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.6' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3C/g%3E%3C/svg%3E");
-            pointer-events: none;
-        }
-        
-        /* Glass shine effect */
-        .content-box::after {
-            content: "";
-            position: absolute;
-            top: -150%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                to bottom right,
-                rgba(255, 255, 255, 0),
-                rgba(255, 255, 255, 0),
-                rgba(255, 255, 255, 0.05),
-                rgba(255, 255, 255, 0)
-            );
-            filter: blur(60px);
-            transform: rotate(30deg);
-            animation: glassShine 3s ease-in-out 1 forwards; /* Run once and stay */
-            pointer-events: none;
-        }
-        
-        @keyframes glassShine {
-            0% {
-                transform: translate(-30%, -30%) rotate(30deg);
-            }
-            100% {
-                transform: translate(30%, 30%) rotate(30deg);
-            }
-        }
-        
-        /* Profile picture above name */
-        .profile-container {
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            transform: scale(0.8);
-            animation: popIn 0.4s ease-out 0.3s forwards; 
-        }
-        
-        @keyframes popIn {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        .profile-picture {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--accent);
-            box-shadow: 0 0 20px rgba(30, 30, 30, 0.5);
-        }
-        
-        /* Name styles with animation */
-        .name {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--text);
-            position: relative;
-            display: inline-block;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: slideUp 0.4s ease-out 0.5s forwards; /* Faster animation */
-        }
-        
-        .name::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 3px;
-            bottom: -10px;
-            left: 30%;
-            background: var(--accent);
-            border-radius: 3px;
-            animation: lineGrow 0.4s ease-out 0.9s forwards; /* Faster animation */
-        }
-        
-        @keyframes lineGrow {
-            from {
-                width: 0;
-            }
-            to {
-                width: 40%;
-            }
-        }
-        
-        /* Description styles */
-        .description {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            line-height: 1.6;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--text-secondary);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: slideUp 0.4s ease-out 0.6s forwards; /* Faster animation */
-        }
-        
-        /* Social icons container */
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-            padding-bottom: 0;
-        }
-        
-        /* Individual social icon with staggered animation */
-        .social-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.2s, background 0.2s;
-            border: 1px solid var(--border);
-            text-decoration: none;
-            margin-bottom: 10px;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        
-        .social-icon:nth-child(1) { animation: slideUp 0.3s ease-out 0.7s forwards; } /* Faster animations */
-        .social-icon:nth-child(2) { animation: slideUp 0.3s ease-out 0.75s forwards; }
-        .social-icon:nth-child(3) { animation: slideUp 0.3s ease-out 0.8s forwards; }
-        .social-icon:nth-child(4) { animation: slideUp 0.3s ease-out 0.85s forwards; }
-        .social-icon:nth-child(5) { animation: slideUp 0.3s ease-out 0.9s forwards; }
-        
-        .social-icon:hover {
-            transform: translateY(-3px);
-            background: rgba(255, 255, 255, 0.1);
-            border-color: #555555;
-        }
-        
-        .social-icon i {
-            font-size: 1.2rem;
-            color: var(--text);
-        }
-        
-        /* Section styling */
-        .section {
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        
-        .skills-section {
-            animation: slideUp 0.4s ease-out 1.0s forwards; /* Faster animation */
-        }
-        
-        .projects-section {
-            animation: slideUp 0.4s ease-out 1.1s forwards; /* Faster animation */
-        }
-        
-        .section-title {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: var(--text);
-            position: relative;
-            display: inline-block;
-        }
-        
+
+        .name::after,
         .section-title::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -8px;
-            left: 25%;
-            background: var(--accent);
-            border-radius: 2px;
-            animation: lineGrow 0.4s ease-out forwards; /* Faster animation */
-            animation-delay: inherit;
+          background: #333333 !important;
         }
-        
-        /* Skills section */
+      }
+
+      @supports (-webkit-touch-callout: none) {
+        body {
+          background: #0a0a0a !important;
+        }
+
+        .content-box {
+          background-color: rgba(10, 10, 10, 0.98) !important;
+          -webkit-backdrop-filter: none !important;
+          backdrop-filter: none !important;
+        }
+
+        .name::after,
+        .section-title::after {
+          background: #333333 !important;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .main-content {
+          padding: 0;
+          align-items: flex-start;
+          overflow-y: auto;
+          height: 100vh;
+        }
+
+        .container {
+          width: 100%;
+          max-width: 100%;
+        }
+
+        .content-box {
+          width: 100%;
+          max-width: 100%;
+          min-height: 100vh;
+          margin: 0;
+          padding: 2rem 1.5rem;
+          border-radius: 0;
+          border: none;
+          background-color: rgba(10, 10, 10, 0.95);
+        }
+
+        .profile-picture {
+          width: 100px;
+          height: 100px;
+        }
+
+        .name {
+          font-size: 2.5rem;
+        }
+
+        .description {
+          font-size: 1rem;
+        }
+
+        .social-icon {
+          width: 40px;
+          height: 40px;
+          margin-bottom: 8px;
+        }
+
+        .social-icons {
+          gap: 1rem;
+          padding: 0;
+        }
+
         .skills-icons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2.5rem;
-            margin-top: 1rem;
+          gap: 1.5rem;
         }
-        
-        .skill-icon {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            transition: transform 0.2s;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        
-        .skill-icon:nth-child(1) { animation: slideUp 0.25s ease-out 1.2s forwards; } /* Faster animations */
-        .skill-icon:nth-child(2) { animation: slideUp 0.25s ease-out 1.25s forwards; }
-        .skill-icon:nth-child(3) { animation: slideUp 0.25s ease-out 1.3s forwards; }
-        .skill-icon:nth-child(4) { animation: slideUp 0.25s ease-out 1.35s forwards; }
-        .skill-icon:nth-child(5) { animation: slideUp 0.25s ease-out 1.4s forwards; }
-        .skill-icon:nth-child(6) { animation: slideUp 0.25s ease-out 1.45s forwards; }
-        .skill-icon:nth-child(7) { animation: slideUp 0.25s ease-out 1.5s forwards; }
-        
-        .skill-icon:hover {
-            transform: translateY(-3px);
-        }
-        
-        .skill-icon i {
-            font-size: 1.8rem;
-            color: var(--text-secondary);
-        }
-        
-        .skill-icon:hover i {
-            color: #555555;
-        }
-        
-        .skill-name {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-        
-        /* Projects section */
+
         .projects-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+          grid-template-columns: 1fr;
         }
-        
-        .project-card {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: left;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        
-        .project-card:nth-child(1) { animation: slideUp 0.3s ease-out 1.3s forwards; } /* Faster animations */
-        .project-card:nth-child(2) { animation: slideUp 0.3s ease-out 1.35s forwards; }
-        .project-card:nth-child(3) { animation: slideUp 0.3s ease-out 1.4s forwards; }
-        .project-card:nth-child(4) { animation: slideUp 0.3s ease-out 1.45s forwards; }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-            border-color: #555555;
-        }
-        
-        .project-image {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-        }
-        
-        .project-content {
-            padding: 1.2rem;
-        }
-        
-        .project-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text);
-        }
-        
-        .project-description {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            line-height: 1.5;
-        }
-        
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .tech-tag {
-            font-size: 0.75rem;
-            padding: 0.3rem 0.6rem;
-            background: rgba(50, 50, 50, 0.3);
-            color: var(--text);
-            border-radius: 4px;
-            border: 1px solid rgba(80, 80, 80, 0.3);
-        }
-        
-        @supports (-webkit-touch-callout: none) {
-            body {
-                background: #0a0a0a !important;
-            }
-            
-            .content-box {
-                background-color: rgba(10, 10, 10, 0.98) !important;
-            }
-            
-            /* Fix for purple line on Mac */
-            .name::after,
-            .section-title::after {
-                background: #333333 !important;
-            }
-        }
-        
-        /* Media Queries */
-        @media (max-width: 768px) {
-            .main-content {
-                padding: 0;
-                align-items: flex-start; /* Align to top instead of center */
-                overflow-y: auto;
-                height: 100vh;
-            }
-            
-            .container {
-                width: 100%;
-                max-width: 100%;
-            }
-            
-            .content-box {
-                width: 100%;
-                max-width: 100%;
-                min-height: 100vh;
-                margin: 0;
-                padding: 2rem 1.5rem;
-                border-radius: 0;
-                border: none;
-                background-color: rgba(10, 10, 10, 0.95);
-            }
-            
-            .profile-picture {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .name {
-                font-size: 2.5rem;
-            }
-            
-            .description {
-                font-size: 1rem;
-            }
-            
-            .social-icon {
-                width: 40px;
-                height: 40px;
-                margin-bottom: 8px;
-            }
-            
-            .social-icons {
-                gap: 1rem;
-                padding: 0;
-            }
-            
-            .skills-icons {
-                gap: 1.5rem;
-            }
-            
-            .projects-container {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .main-content {
-                padding: 0;
-            }
-            
-            .content-box {
-                border-radius: 0;
-                min-height: 100vh;
-                background-color: rgba(10, 10, 10, 0.98);
-                width: 100%;
-                padding: 1.5rem 1rem;
-                border: none;
-            }
-            
-            body {
-                background-attachment: fixed;
-            }
-            
-            .profile-picture {
-                width: 80px;
-                height: 80px;
-            }
-            
-            .name {
-                font-size: 2rem;
-            }
-            
-            .skills-icons {
-                gap: 1rem;
-            }
-            
-            .skill-icon i {
-                font-size: 1.5rem;
-            }
-            
-            .section-title {
-                font-size: 1.3rem;
-            }
-            
-            .social-icons {
-                gap: 0.8rem;
-            }
-            
-            .social-icon {
-                width: 38px;
-                height: 38px;
-            }
+      }
+
+      @media (max-width: 480px) {
+        .main-content {
+          padding: 0;
         }
 
+        .content-box {
+          border-radius: 0;
+          min-height: 100vh;
+          background-color: rgba(10, 10, 10, 0.98);
+          width: 100%;
+          padding: 1.5rem 1rem;
+          border: none;
+        }
 
+        body {
+          background-attachment: fixed;
+        }
 
+        .profile-picture {
+          width: 80px;
+          height: 80px;
+        }
 
+        .name {
+          font-size: 2rem;
+        }
+
+        .skills-icons {
+          gap: 1rem;
+        }
+
+        .skill-icon i {
+          font-size: 1.5rem;
+        }
+
+        .section-title {
+          font-size: 1.3rem;
+        }
+
+        .social-icons {
+          gap: 0.8rem;
+        }
+
+        .social-icon {
+          width: 38px;
+          height: 38px;
+        }
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <main class="main-content">
-        <div class="container">
-            <div class="content-box">
-                <div class="profile-container">
-                    <img src="https://github.com/neoarz/neoarz/blob/main/neoarz.jpeg?raw=true" alt="Profile Picture" class="profile-picture">
-                </div>
-                
-                <h1 class="name">neoarz</h1>
-                <p class="description">Hey I'm Neo! </p>
-                
-                <div class="social-icons">
-                    <a href="https://x.com/nnneoarz" class="social-icon" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href=https://www.reddit.com/user/neoarz/" class="social-icon" aria-label="Reddit" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-reddit"></i>
-                    </a>
-                    <a href="email.neoarz.xyz" class="social-icon" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="discordapp.com/users/1015372540937502851" class="social-icon" aria-label="Discord" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-discord"></i>
-                    </a>
-                    <a href="https://github.com/neoarz" class="social-icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
-                
-                
-                <div class="section skills-section">
-                    <h2 class="section-title">Skills & Technologies</h2>
-                    <div class="skills-icons">
-                        <div class="skill-icon">
-                            <i class="fab fa-js"></i>
-                            <span class="skill-name">JavaScript</span>
-                        </div>
-                        <div class="skill-icon">
-                            <i class="fab fa-css3-alt"></i>
-                            <span class="skill-name">CSS</span>
-                        </div>
-                        <div class="skill-icon">
-                            <i class="fab fa-html5"></i>
-                            <span class="skill-name">HTML</span>
-                        </div>
-                        <div class="skill-icon">
-                            <i class="fab fa-swift"></i>
-                            <span class="skill-name">Swift</span>
-                        </div>
-                        <div class="skill-icon">
-                            <i class="fab fa-figma"></i>
-                            <span class="skill-name">Figma</span>
-                        </div>
-                        <div class="skill-icon">
-                            <i class="fab fa-python"></i>
-                            <span class="skill-name">Python</span>
-                        </div>
-                        <div class="skill-icon">
-                            <i class="fab fa-docker"></i>
-                            <span class="skill-name">Docker</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section projects-section">
-                    <h2 class="section-title">Current Projects</h2>
-                    <div class="projects-container">
-                        <div class="project-card">
-                            <img src="https://github.com/neoarz/neoarz/raw/refs/heads/main/assets/Sidestore.webp" alt="Sidestore" class="project-image">
-                            <div class="project-content">
-                                <h3 class="project-title">Sidestore</h3>
-                                <p class="project-description">SideStore is an untethered, community driven alternative app store for non-jailbroken iOS devices.</p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">Swift</span>
-                                    <span class="tech-tag">Python</span>
-                                    <span class="tech-tag">Objective-C</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="project-card">
-                            <img src="https://github.com/neoarz/neoarz/blob/main/assets/Countdown.png?raw=true" alt="Countdown" class="project-image">
-                            <div class="project-content">
-                                <h3 class="project-title">Countdown</h3>
-                                <p class="project-description">If you could know exactly when you're going to die, would you want to know?</p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">Swift</span>
-                                </div>
-                            </div>
-                        </div>
+      <div class="container">
+        <div class="content-box">
+          <div class="profile-container">
+            <img
+              src="https://github.com/neoarz/neoarz/blob/main/neoarz.jpeg?raw=true"
+              alt="Profile Picture"
+              class="profile-picture"
+            />
+          </div>
 
-                        <div class="project-card">
-                            <img src="/api/placeholder/400/200" alt="Project 3" class="project-image">
-                            <div class="project-content">
-                                <h3 class="project-title">StikNES</h3>
-                                <p class="project-description">StikNES is a SwiftUI-based NES emulator designed for iOS devices.</p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">Swift</span>
-                                    <span class="tech-tag">JavaScript</span>
-                                    <span class="tech-tag">HTML</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="project-card">
-                            <img src="/api/placeholder/400/200" alt="Project 4" class="project-image">
-                            <div class="project-content">
-                                <h3 class="project-title">E-Commerce Theme</h3>
-                                <p class="project-description">A modern, minimalist e-commerce theme with dark mode and optimized for performance.</p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">HTML/CSS</span>
-                                    <span class="tech-tag">JavaScript</span>
-                                    <span class="tech-tag">Shopify</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <h1 class="name">neoarz</h1>
+          <p class="description">Hey I'm Neo!</p>
+
+          <div class="social-icons">
+            <a
+              href="https://x.com/nnneoarz"
+              class="social-icon"
+              aria-label="Twitter"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="https://www.reddit.com/user/neoarz/"
+              class="social-icon"
+              aria-label="Reddit"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fab fa-reddit"></i>
+            </a>
+            <a
+              href="mailto:john@example.com"
+              class="social-icon"
+              aria-label="Email"
+            >
+              <i class="fas fa-envelope"></i>
+            </a>
+
+            <a
+              href="https://discordapp.com/users/1015372540937502851"
+              class="social-icon"
+              aria-label="Discord"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fab fa-discord"></i>
+            </a>
+            <a
+              href="https://github.com/neoarz"
+              class="social-icon"
+              aria-label="GitHub"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+
+          <div class="section skills-section">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-icons">
+              <div class="skill-icon">
+                <i class="fab fa-js"></i>
+                <span class="skill-name">JavaScript</span>
+              </div>
+              <div class="skill-icon">
+                <i class="fab fa-css3-alt"></i>
+                <span class="skill-name">CSS</span>
+              </div>
+              <div class="skill-icon">
+                <i class="fab fa-html5"></i>
+                <span class="skill-name">HTML</span>
+              </div>
+              <div class="skill-icon">
+                <i class="fab fa-swift"></i>
+                <span class="skill-name">Swift</span>
+              </div>
+              <div class="skill-icon">
+                <i class="fab fa-figma"></i>
+                <span class="skill-name">Figma</span>
+              </div>
+              <div class="skill-icon">
+                <i class="fab fa-python"></i>
+                <span class="skill-name">Python</span>
+              </div>
+              <div class="skill-icon">
+                <i class="fab fa-docker"></i>
+                <span class="skill-name">Docker</span>
+              </div>
             </div>
+          </div>
+
+          <div class="section projects-section">
+            <h2 class="section-title">Current Projects</h2>
+            <div class="projects-container">
+              <div class="project-card">
+                <img
+                  src="https://github.com/neoarz/neoarz/raw/refs/heads/main/assets/Sidestore.webp"
+                  alt="Sidestore"
+                  class="project-image"
+                />
+                <div class="project-content">
+                  <h3 class="project-title">Sidestore</h3>
+                  <p class="project-description">
+                    SideStore is an untethered, community driven alternative app
+                    store for non-jailbroken iOS devices.
+                  </p>
+                  <div class="project-tech">
+                    <span class="tech-tag">Swift</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Objective-C</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-card">
+                <img
+                  src="https://github.com/neoarz/neoarz/blob/main/assets/CountdownBanner.png?raw=true"
+                  alt="Sidestore"
+                  class="project-image"
+                />
+                <div class="project-content">
+                  <h3 class="project-title">Countdown</h3>
+                  <p class="project-description">
+                    If you could know exactly when you're going to die, would
+                    you want to know?
+                  </p>
+                  <div class="project-tech">
+                    <span class="tech-tag">Swift</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-card">
+                <img
+                  src="https://github.com/neoarz/neoarz/blob/main/assets/StikNES.png?raw=true"
+                  alt="Project 3"
+                  class="project-image"
+                />
+                <div class="project-content">
+                  <h3 class="project-title">StikNES</h3>
+                  <p class="project-description">
+                    StikNES is a SwiftUI-based NES emulator designed for iOS
+                    devices.
+                  </p>
+                  <div class="project-tech">
+                    <span class="tech-tag">Swift</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">HTML</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-card">
+                <img
+                  src="https://github.com/neoarz/neoarz/blob/main/assets/neosign.png?raw=true"
+                  alt="Project 4"
+                  class="project-image"
+                />
+                <div class="project-content">
+                  <h3 class="project-title">Neosign</h3>
+                  <p class="project-description">
+                    The best cert provider for iOS!
+                  </p>
+                  <div class="project-tech">
+                    <span class="tech-tag">HTML/CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Swift</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </main>
     <script>
-        window.onload = function () {
-            setTimeout(() => {
-                window.scrollTo(0, 0);
-            }, 10);
+      window.onload = function () {
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+        }, 10);
+
+
+        const projectLinks = {
+          Sidestore: "https://github.com/SideStore/SideStore",
+          Countdown: "https://github.com/neoarz/Countdown-App",
+          StikNES: "https://stiknes.com/",
+          Neosign: "https://github.com/NeoSigniOS",
         };
+
+
+        document.querySelectorAll(".project-card").forEach((card) => {
+          card.addEventListener("click", function () {
+            this.style.transform = "translateY(-5px) scale(0.98)";
+
+            const projectTitle =
+              this.querySelector(".project-title").textContent;
+
+            setTimeout(() => {
+              this.style.transform = "";
+              if (projectLinks[projectTitle]) {
+                window.open(projectLinks[projectTitle], "_blank");
+              }
+            }, 150);
+          });
+        });
+      };
     </script>
-</body>
+  </body>
 </html>
