@@ -217,6 +217,7 @@
         -webkit-animation: glassShine 3s ease-in-out 1 forwards;
         animation: glassShine 3s ease-in-out 1 forwards;
         pointer-events: none;
+        opacity: 1 !important;
       }
 
       @-webkit-keyframes glassShine {
@@ -645,6 +646,15 @@
           align-items: flex-start;
           overflow-y: auto;
           height: 100vh;
+        }
+
+        .content-box::after {
+          top: -80%;
+          left: -80%;
+          width: 150%;
+          height: 150%;
+          opacity: 0.05;
+          transform: rotate(30deg) translate(0%, 0%);
         }
 
         .container {
