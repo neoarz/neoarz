@@ -15,6 +15,7 @@
             box-sizing: border-box;
         }
         
+        
         :root {
             --primary: #0a0a0a;
             --secondary: #121212;
@@ -22,9 +23,9 @@
             --text: #e0e0e0;
             --text-secondary: #a0a0a0;
             --border: #333333;
-            --gradient-start: #000000;
-            --gradient-mid: #0a0a0a;
-            --gradient-end: #121212;
+            --gradient-start: #0a0a0a;
+            --gradient-mid: #121212; 
+            --gradient-end: #1a1a1a;
         }
         
         body {
@@ -36,15 +37,15 @@
             position: relative;
             overflow-x: hidden;
             background: #0a0a0a; /* Solid fallback color */
-            background: -webkit-linear-gradient(-45deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
-            background: linear-gradient(-45deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
-            background-size: 400% 400%;
-            background-attachment: fixed;
-            -webkit-animation: gradient 20s ease infinite;
-            animation: gradient 20s ease infinite;
+            
+            background: -webkit-linear-gradient(-45deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end), var(--gradient-mid), var(--gradient-start));
+           background: linear-gradient(-45deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end), var(--gradient-mid), var(--gradient-start));
+           background-size: 600% 600%; /* Larger background size for more subtle transitions */
+         -webkit-animation: gradient 25s ease infinite; /* Slower animation */
+         animation: gradient 25s ease infinite; /* Slower animation */
         }
         
-        /* Animated gradient background */
+        /* Improved animated gradient background */
         @-webkit-keyframes gradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -52,15 +53,9 @@
         }
         
         @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
         /* Subtle texture overlay */
@@ -90,19 +85,45 @@
             text-align: center;
             max-width: 800px;
             width: 100%;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards; /* Faster animation */
         }
         
-        /* Content box with subtle texture */
+        /* Glass container animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Content box with subtle texture and glass effect */
         .content-box {
-            background-color: rgba(10, 10, 10, 0.9);
+            background-color: rgba(10, 10, 10, 0.7);
             border-radius: 12px;
             padding: 3rem 2rem;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             position: relative;
             overflow: hidden;
             border: 1px solid var(--border);
             -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
+            transform: translateY(30px);
+            opacity: 0;
+            animation: slideUp 0.5s ease-out 0.1s forwards; /* Faster animation */
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
         
         .content-box::before {
@@ -117,9 +138,53 @@
             pointer-events: none;
         }
         
+        /* Glass shine effect */
+        .content-box::after {
+            content: "";
+            position: absolute;
+            top: -150%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0),
+                rgba(255, 255, 255, 0),
+                rgba(255, 255, 255, 0.05),
+                rgba(255, 255, 255, 0)
+            );
+            filter: blur(20px);
+            transform: rotate(30deg);
+            animation: glassShine 6s ease-in-out 1 forwards; /* Run once and stay */
+            pointer-events: none;
+        }
+        
+        @keyframes glassShine {
+            0% {
+                transform: translate(-30%, -30%) rotate(30deg);
+            }
+            100% {
+                transform: translate(30%, 30%) rotate(30deg);
+            }
+        }
+        
         /* Profile picture above name */
         .profile-container {
             margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: popIn 0.4s ease-out 0.3s forwards; /* Faster animation */
+        }
+        
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
         
         .profile-picture {
@@ -131,7 +196,7 @@
             box-shadow: 0 0 20px rgba(30, 30, 30, 0.5);
         }
         
-        /* Name styles */
+        /* Name styles with animation */
         .name {
             font-size: 3rem;
             font-weight: 700;
@@ -139,17 +204,30 @@
             color: var(--text);
             position: relative;
             display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 0.4s ease-out 0.5s forwards; /* Faster animation */
         }
         
         .name::after {
             content: '';
             position: absolute;
-            width: 40%;
+            width: 0;
             height: 3px;
             bottom: -10px;
             left: 30%;
             background: var(--accent);
             border-radius: 3px;
+            animation: lineGrow 0.4s ease-out 0.9s forwards; /* Faster animation */
+        }
+        
+        @keyframes lineGrow {
+            from {
+                width: 0;
+            }
+            to {
+                width: 40%;
+            }
         }
         
         /* Description styles */
@@ -161,6 +239,9 @@
             margin-left: auto;
             margin-right: auto;
             color: var(--text-secondary);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 0.4s ease-out 0.6s forwards; /* Faster animation */
         }
         
         /* Social icons container */
@@ -169,11 +250,11 @@
             justify-content: center;
             gap: 1.5rem;
             margin-top: 2rem;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
-            padding-bottom: 0; /* Remove bottom padding that might cause blue line */
+            flex-wrap: wrap;
+            padding-bottom: 0;
         }
         
-        /* Individual social icon */
+        /* Individual social icon with staggered animation */
         .social-icon {
             width: 48px;
             height: 48px;
@@ -184,9 +265,17 @@
             justify-content: center;
             transition: transform 0.2s, background 0.2s;
             border: 1px solid var(--border);
-            text-decoration: none; /* Remove underline */
-            margin-bottom: 10px; /* Add margin for spacing when wrapped */
+            text-decoration: none;
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateY(20px);
         }
+        
+        .social-icon:nth-child(1) { animation: slideUp 0.3s ease-out 0.7s forwards; } /* Faster animations */
+        .social-icon:nth-child(2) { animation: slideUp 0.3s ease-out 0.75s forwards; }
+        .social-icon:nth-child(3) { animation: slideUp 0.3s ease-out 0.8s forwards; }
+        .social-icon:nth-child(4) { animation: slideUp 0.3s ease-out 0.85s forwards; }
+        .social-icon:nth-child(5) { animation: slideUp 0.3s ease-out 0.9s forwards; }
         
         .social-icon:hover {
             transform: translateY(-3px);
@@ -204,6 +293,16 @@
             margin-top: 4rem;
             padding-top: 2rem;
             border-top: 1px solid var(--border);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .skills-section {
+            animation: slideUp 0.4s ease-out 1.0s forwards; /* Faster animation */
+        }
+        
+        .projects-section {
+            animation: slideUp 0.4s ease-out 1.1s forwards; /* Faster animation */
         }
         
         .section-title {
@@ -217,12 +316,14 @@
         .section-title::after {
             content: '';
             position: absolute;
-            width: 50%;
+            width: 0;
             height: 2px;
             bottom: -8px;
             left: 25%;
             background: var(--accent);
             border-radius: 2px;
+            animation: lineGrow 0.4s ease-out forwards; /* Faster animation */
+            animation-delay: inherit;
         }
         
         /* Skills section */
@@ -240,7 +341,17 @@
             align-items: center;
             gap: 0.5rem;
             transition: transform 0.2s;
+            opacity: 0;
+            transform: translateY(20px);
         }
+        
+        .skill-icon:nth-child(1) { animation: slideUp 0.25s ease-out 1.2s forwards; } /* Faster animations */
+        .skill-icon:nth-child(2) { animation: slideUp 0.25s ease-out 1.25s forwards; }
+        .skill-icon:nth-child(3) { animation: slideUp 0.25s ease-out 1.3s forwards; }
+        .skill-icon:nth-child(4) { animation: slideUp 0.25s ease-out 1.35s forwards; }
+        .skill-icon:nth-child(5) { animation: slideUp 0.25s ease-out 1.4s forwards; }
+        .skill-icon:nth-child(6) { animation: slideUp 0.25s ease-out 1.45s forwards; }
+        .skill-icon:nth-child(7) { animation: slideUp 0.25s ease-out 1.5s forwards; }
         
         .skill-icon:hover {
             transform: translateY(-3px);
@@ -275,7 +386,14 @@
             border: 1px solid var(--border);
             transition: transform 0.3s, box-shadow 0.3s;
             text-align: left;
+            opacity: 0;
+            transform: translateY(20px);
         }
+        
+        .project-card:nth-child(1) { animation: slideUp 0.3s ease-out 1.3s forwards; } /* Faster animations */
+        .project-card:nth-child(2) { animation: slideUp 0.3s ease-out 1.35s forwards; }
+        .project-card:nth-child(3) { animation: slideUp 0.3s ease-out 1.4s forwards; }
+        .project-card:nth-child(4) { animation: slideUp 0.3s ease-out 1.45s forwards; }
         
         .project-card:hover {
             transform: translateY(-5px);
@@ -340,6 +458,29 @@
         
         /* Media Queries */
         @media (max-width: 768px) {
+            .main-content {
+                padding: 0;
+                align-items: flex-start; /* Align to top instead of center */
+                overflow-y: auto;
+                height: 100vh;
+            }
+            
+            .container {
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .content-box {
+                width: 100%;
+                max-width: 100%;
+                min-height: 100vh;
+                margin: 0;
+                padding: 2rem 1.5rem;
+                border-radius: 0;
+                border: none;
+                background-color: rgba(10, 10, 10, 0.95);
+            }
+            
             .profile-picture {
                 width: 100px;
                 height: 100px;
@@ -353,19 +494,15 @@
                 font-size: 1rem;
             }
             
-            .content-box {
-                padding: 2rem 1.5rem;
-            }
-            
             .social-icon {
                 width: 40px;
                 height: 40px;
-                margin-bottom: 8px; /* Ensure space when icons wrap */
+                margin-bottom: 8px;
             }
             
             .social-icons {
-                gap: 1rem; /* Reduce gap on smaller screens */
-                padding: 0; /* Remove any padding that might cause lines */
+                gap: 1rem;
+                padding: 0;
             }
             
             .skills-icons {
@@ -378,6 +515,19 @@
         }
         
         @media (max-width: 480px) {
+            .main-content {
+                padding: 0;
+            }
+            
+            .content-box {
+                border-radius: 0;
+                min-height: 100vh;
+                background-color: rgba(10, 10, 10, 0.98);
+                width: 100%;
+                padding: 1.5rem 1rem;
+                border: none;
+            }
+            
             body {
                 background-attachment: fixed;
             }
@@ -403,16 +553,12 @@
                 font-size: 1.3rem;
             }
             
-            .content-box {
-                background-color: rgba(10, 10, 10, 0.95);
-            }
-            
             .social-icons {
-                gap: 0.8rem; /* Even smaller gap on tiny screens */
+                gap: 0.8rem;
             }
             
             .social-icon {
-                width: 38px; /* Slightly smaller icons */
+                width: 38px;
                 height: 38px;
             }
         }
@@ -428,7 +574,7 @@
                 </div>
                 
                 <h1 class="name">neoarz</h1>
-                <p class="description">Developer and designer focused on creating minimalist, functional digital experiences with clean code and thoughtful user interfaces.</p>
+                <p class="description">17 year old dumbass who had nothing to look up to</p>
                 
                 <div class="social-icons">
                     <a href="#" class="social-icon" aria-label="Twitter">
@@ -541,5 +687,12 @@
             </div>
         </div>
     </main>
+    <script>
+        window.onload = function () {
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+            }, 10);
+        };
+    </script>
 </body>
 </html>
