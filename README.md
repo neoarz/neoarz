@@ -1,6 +1,6 @@
 
 ```code
-sudo rm -rf --no-preserve-roo
+sudo rm -rf --no-preserve-root
 ```
 
 
