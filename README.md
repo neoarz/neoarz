@@ -17,4 +17,4 @@ sudo rm -rf --no-preserve-root
   <img src="http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=neoarz&theme=github" width="32%" />
 </picture>
 
-</div>
+</div
