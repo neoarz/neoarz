@@ -2,8 +2,6 @@
 ```code
 sudo rm -rf --no-preserve-root
 ```
-hi
-
 
 
 <div align="center">
